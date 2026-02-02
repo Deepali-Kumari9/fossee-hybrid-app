@@ -6,7 +6,7 @@ export default function DatasetHistory({ token }) {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://127.0.0.1:8000/api/datasets/", {
+    fetch("https://fossee-backend-deepali.onrender.com/api/datasets/", {
       headers: {
         Authorization: `Token ${token}`,
       },

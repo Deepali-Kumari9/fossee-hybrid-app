@@ -6,7 +6,7 @@ export default function EquipmentTable({ token }) {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://127.0.0.1:8000/api/equipment/", {
+    fetch("https://fossee-backend-deepali.onrender.com/api/equipment/", {
       headers: {
         Authorization: `Token ${token}`,
       },

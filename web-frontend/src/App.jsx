@@ -14,7 +14,7 @@ function App() {
   const fetchSummary = async () => {
     if (!token) return;
 
-    const res = await fetch("http://127.0.0.1:8000/api/summary/", {
+    const res = await fetch("https://fossee-backend-deepali.onrender.com/api/summary/", {
       headers: { Authorization: `Token ${token}` },
     });
 
@@ -26,7 +26,7 @@ function App() {
     fetchSummary();
   }, [token]);
 
-  // ================= CSV UPLOAD (FIXED) =================
+  // ================= CSV UPLOAD  =================
   const handleUpload = async () => {
     if (!file) {
       alert("Please select a CSV file");
@@ -37,7 +37,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/upload/", {
+      const response = await fetch("https://fossee-backend-deepali.onrender.com/api/upload/", {
         method: "POST",
         headers: {
           Authorization: `Token ${token}`,
@@ -59,7 +59,7 @@ function App() {
 
   // ================= PDF DOWNLOAD =================
   const handleDownloadPDF = () => {
-    fetch("http://127.0.0.1:8000/api/download-report/", {
+    fetch("https://fossee-backend-deepali.onrender.com/api/download-report/", {
       headers: { Authorization: `Token ${token}` },
     })
       .then((res) => res.blob())
