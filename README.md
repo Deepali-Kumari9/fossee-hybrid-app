@@ -164,9 +164,9 @@ Available inside the `Screenshots/` folder.
 
 ---
 
-## 🎥 Demo Video
+## 🎥 Project Demonstration video
 
-Included as: `demo-video.mp4`
+https://drive.google.com/file/d/1JlLfLUIPONJQoNSymKUv-yyB3Z83G-M0/view?usp=sharing
 
 ---
 
@@ -179,3 +179,4 @@ Generated after CSV upload from both Web and Desktop interfaces.
 ## 👩‍💻 Developer
 
 **Deepali Kumari**
+
