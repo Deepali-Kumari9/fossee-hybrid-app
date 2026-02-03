@@ -1,14 +1,24 @@
 # 🧪 Chemical Equipment Parameter Visualizer
 
-### Hybrid Web + Desktop Application (Django + React + PyQt5)
+### Hybrid Web + Desktop Application (Django REST + React + PyQt5)
 
-This project is developed as part of the **FOSSEE Internship Screening Task**. It demonstrates a **hybrid architecture** where a single Django REST backend is consumed by both a React Web Application and a PyQt5 Desktop Application to perform data visualization and analytics for chemical equipment parameters.
+This project is developed as part of the **FOSSEE Internship Screening Task**.
+It demonstrates a **hybrid architecture** where a **single Django REST backend** is consumed by both a **React Web Application** and a **PyQt5 Desktop Application** for chemical equipment data visualization and analytics.
+
+---
+
+## 🌐 Live Deployment Links
+
+* 🔗 **Web Application (React)**: [https://fossee-hybrid-app.onrender.com](https://fossee-hybrid-app.onrender.com)
+* 🔗 **Backend API (Django REST)**: [https://fossee-backend-deepali.onrender.com](https://fossee-backend-deepali.onrender.com)
+
+> Both the Web and Desktop applications use the **same deployed backend API**.
 
 ---
 
 ## 📌 Project Overview
 
-The system allows users to upload a CSV file containing chemical equipment data with the following columns:
+Users upload a CSV file containing chemical equipment parameters:
 
 * Equipment Name
 * Equipment Type
@@ -16,63 +26,68 @@ The system allows users to upload a CSV file containing chemical equipment data 
 * Pressure
 * Flowrate
 
-The Django backend processes the data using **Pandas**, stores recent datasets in **SQLite**, and exposes summary analytics via REST APIs. Both the Web and Desktop applications consume the same APIs to present tables, charts, summaries, dataset history, and PDF reports.
+The Django backend:
+
+* Parses CSV using **Pandas**
+* Stores last **5 datasets** in **SQLite**
+* Provides **summary analytics APIs**
+* Generates **PDF reports**
+* Supports **authentication**
+
+Both **Web** and **Desktop** frontends consume the same APIs and display:
+tables, charts, summaries, history, and reports.
 
 ---
 
 ## 🧱 Technology Stack
 
-| Layer            | Technology                     | Purpose                        |
-| ---------------- | ------------------------------ | ------------------------------ |
-| Backend          | Django + Django REST Framework | API and data processing        |
-| Data Analysis    | Pandas                         | CSV parsing and analytics      |
-| Database         | SQLite                         | Store last 5 uploaded datasets |
-| Web Frontend     | React.js + Chart.js            | Visualization in browser       |
-| Desktop Frontend | PyQt5 + Matplotlib             | Visualization in desktop       |
-| PDF Generation   | ReportLab                      | Analytical report              |
-| Version Control  | Git & GitHub                   | Project submission             |
+| Layer            | Technology          | Purpose                   |
+| ---------------- | ------------------- | ------------------------- |
+| Backend          | Django + DRF        | API & data processing     |
+| Data Analysis    | Pandas              | CSV analytics             |
+| Database         | SQLite              | Store last 5 datasets     |
+| Web Frontend     | React.js + Chart.js | Browser visualization     |
+| Desktop Frontend | PyQt5 + Matplotlib  | Desktop visualization     |
+| PDF Report       | ReportLab           | Generate analytics report |
+| Version Control  | Git & GitHub        | Submission                |
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-* CSV upload from both Web and Desktop applications
-* Summary statistics (total count, averages, equipment type distribution)
-* Equipment Type Distribution chart
-* Flowrate vs Temperature chart
-* Pressure trend visualization
-* Tabular data representation
-* Dataset history (last 5 uploads stored in database)
+* CSV Upload from Web and Desktop
+* Summary statistics API
+* Equipment type distribution chart
+* Flowrate vs Temperature visualization
+* Pressure trend chart
+* Tabular data display
+* Dataset history (last 5 uploads)
 * PDF report generation
-* Basic authentication (login system)
-* **Refresh Data button to reload latest dataset without re-uploading**
-* Single Django backend serving two different frontends
+* Basic authentication system
+* Refresh data without re-upload
+* Single backend serving two frontends
 
 ---
 
-## 📁 Project Structure
+## 🗂️ Project Structure
 
 ```
 FOSSEE_INTERNSHIP/
 │
-├── backend/                     # Django REST API
-├── web-frontend/                # React Web Application
-├── desktop-app/                 # PyQt5 Desktop Application
-├── Screenshots/                 # Output screenshots
-├── demo-video.mp4               # Project demo video
-├── sample_equipment_data.csv    # Sample CSV for testing
+├── backend/
+├── web-frontend/
+├── desktop-app/
+├── Screenshots/
+├── demo-video.mp4
+├── sample_equipment_data.csv
 └── README.md
 ```
 
 ---
 
-## ⚙️ How to Run the Project (Important Order)
+## ⚙️ How to Run Locally (Development Setup)
 
-> This project uses **two separate virtual environments**: one for backend and one for desktop app.
-
-### 🟢 Step 1 — Run Backend Server
-
-Open Terminal 1:
+### 🟢 Step 1 — Backend
 
 ```
 cd backend
@@ -82,14 +97,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Backend runs at:
-[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+Runs at: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ---
 
-### 🟢 Step 2 — Run Desktop Application
-
-Open Terminal 2:
+### 🟢 Step 2 — Desktop App
 
 ```
 cd desktop-app
@@ -100,9 +112,7 @@ python main.py
 
 ---
 
-### 🟢 Step 3 — Run Web Application 
-
-Open Terminal 3:
+### 🟢 Step 3 — Web App
 
 ```
 cd web-frontend
@@ -110,56 +120,62 @@ npm install
 npm run dev
 ```
 
-Web app runs at:
-[http://localhost:5173/](http://localhost:5173/)
+Runs at: [http://localhost:5173/](http://localhost:5173/)
 
 ---
 
 ## 🔐 Demo Login Credentials
 
-```
-Username: demo
-Password: democheck123
-```
+* **Username:** demo
+* **Password:** democheck123
 
 ---
 
-## 📊 Sample CSV for Testing
+## 🧪 Sample CSV
 
-Use the file:
+Use:
+`sample_equipment_data.csv`
+
+Upload from Web or Desktop to test full functionality.
+
+---
+
+## 📊 Architecture 
+
+This project follows a **Hybrid Architecture**:
 
 ```
-sample_equipment_data.csv
+           React Web App  ─┐
+                           ├──> Django REST API (Render Deployed)
+           PyQt5 Desktop ──┘
 ```
 
-Upload this file from Web or Desktop to view analytics, charts, dataset history, and generate PDF report.
+Both frontends consume the **same deployed API**, ensuring:
+
+* Code reusability
+* Consistent analytics
+* Centralized data processing
 
 ---
 
 ## 📸 Screenshots
 
-All output screenshots of the project are available inside the **Screenshots/** folder.
+Available inside the `Screenshots/` folder.
 
 ---
 
 ## 🎥 Demo Video
 
-A complete working demonstration of the project is provided in:
-
-```
-demo-video.mp4
-```
+Included as: `demo-video.mp4`
 
 ---
 
 ## 📄 PDF Report
 
-After uploading data, a PDF report containing summary statistics can be downloaded from both Web and Desktop interfaces.
+Generated after CSV upload from both Web and Desktop interfaces.
 
 ---
 
 ## 👩‍💻 Developer
 
 **Deepali Kumari**
-
-
