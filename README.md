@@ -2,7 +2,7 @@
 
 ### Hybrid Web + Desktop Application (Django REST + React + PyQt5)
 
-This project is developed as part of the **FOSSEE Internship Screening Task**.
+
 It demonstrates a **hybrid architecture** where a **single Django REST backend** is consumed by both a **React Web Application** and a **PyQt5 Desktop Application** for chemical equipment data visualization and analytics.
 
 ---
@@ -179,4 +179,5 @@ Generated after CSV upload from both Web and Desktop interfaces.
 ## 👩‍💻 Developer
 
 **Deepali Kumari**
+
 
